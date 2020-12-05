@@ -40,21 +40,25 @@ mongoose
         })
       );
 
-      if (process.env.NODE_ENV === 'production') {
-        app.use(express.static('/build')); // serve the static react app
-        app.get(/^\/(?!api).*/, (req, res) => {
-          // don't serve api routes to react app
-          res.sendFile(path.join(__dirname, './build/index.html'));
-        });
-        console.log('Serving React App...');
-      }
-
       // Passport
       app.use(passport.initialize());
       app.use(passport.session()); // calls the deserializeUser
 
       // Routes
       app.use('/api/user', user);
+
+      if (process.env.NODE_ENV === 'production') {
+        app.use(express.static(path.join(__dirname, 'client/build')));
+        //
+        app.get('*', (req, res) => {
+          res.sendfile(path.join((__dirname = 'client/build/index.html')));
+        });
+      }
+
+      // build mode
+      app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/public/index.html'));
+      });
 
       // app.post('/api/user', (req, res) => {
       //   console.log('THE ROUTE IS HIT');
