@@ -30,3 +30,5 @@ Heroku gives you a random app name and you probably don't want to build a brand 
 <b>heroku open</b>
 
 Enter your author name and license info into the README
+
+Be sure to set your environment variables on Heroku, save the mongo connection string to the key MONGODB_URI
