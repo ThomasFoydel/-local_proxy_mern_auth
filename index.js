@@ -9,6 +9,7 @@ const app = express();
 const PORT = 8000;
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Route requires
 const user = require('./routes/user');
@@ -23,9 +24,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 
-const uri =
-  PROCESS.ENV.MONGODB_URI ||
-  'mongodb+srv://user:testingtesting@cluster0.zq8mg.mongodb.net/<dbname>?retryWrites=true&w=majority';
+const uri = process.env.MONGODB_URI;
 mongoose
   .connect(uri)
   .then(
