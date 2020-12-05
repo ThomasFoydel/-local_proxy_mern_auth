@@ -23,7 +23,9 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 
-const uri = process.env.MONGODB_URI;
+const uri =
+  PROCESS.ENV.MONGODB_URI ||
+  'mongodb+srv://user:testingtesting@cluster0.zq8mg.mongodb.net/<dbname>?retryWrites=true&w=majority';
 mongoose
   .connect(uri)
   .then(
