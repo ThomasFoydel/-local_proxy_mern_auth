@@ -7,10 +7,10 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('./passport');
 const app = express();
-const PORT = 8000;
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const PORT = 8000 || process.env.PORT;
 // Route requires
 const user = require('./routes/user');
 
