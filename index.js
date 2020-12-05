@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -10,7 +11,6 @@ const PORT = 8000;
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
-
 // Route requires
 const user = require('./routes/user');
 
