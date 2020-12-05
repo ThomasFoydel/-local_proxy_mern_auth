@@ -4,10 +4,10 @@ mongoose.Promise = global.Promise;
 
 //your local database url
 //27017 is the default mongoDB port
-// const uri = process.env.MONGODB_URI || 'mongodb://localhost/journalentrylist';
-const uri =
-  process.env.MONGODB_URI ||
-  'mongodb+srv://user:testingtesting@cluster0.zq8mg.mongodb.net/<dbname>?retryWrites=true&w=majority';
+
+// YOU MUST SET THIS TO YOUR DB CONNECTION STRING HERE
+// OR IN YOUR .env FILE IF YOU WANT TO BE COOL AND SECURE
+const uri = process.env.MONGODB_URI;
 
 mongoose
   .connect(uri)
