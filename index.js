@@ -23,6 +23,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 
+const uri = process.env.MONGODB_URI;
 mongoose
   .connect(uri)
   .then(
